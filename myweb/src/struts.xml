@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<include file="struts-default.xml"/>
+<package name="structs2" extends="struts-default" namespace="/">
+   <action name="categoryList" class="book.action.categoryAction" method="getALLCategory">
+      <result>/index.jsp</result>
+   </action>
+   <action name="addCategory" class="book.action.categoryAction" method="addCategory">
+      <result type="redirect">categoryList.action</result>
+      <result name="input">/add.jsp</result>
+   </action>
+   <action name="getCategory" class="book.action.categoryAction" method="getCategory">
+      <result>/edit.jsp</result>
+   </action>
+   <action name="editCategory" class="book.action.categoryAction" method="editCategory">
+      <result type="redirect">categoryList.action</result>
+      <result name="input">/edit.jsp</result>
+   </action>
+   <action name="delCategory" class="book.action.categoryAction" method="delCategory">
+      <result type="redirect">categoryList.action</result>
+   </action>
+    <action name="searchCategory" class="book.action.categoryAction" method="searchCategory">
+      <result type="chain">action2</result>
+      <result name="input">/search.jsp</result>
+   </action>
+   <action name="action2" class="book.action.categoryAction" method="searchCategory">    
+        <interceptor-ref name="defaultStack"></interceptor-ref>      
+          <result>/ok.jsp</result>    
+   </action>
+</package>
+
+</struts>    

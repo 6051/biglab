@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Form Select</title>
+<script type="text/javascript">
+function ChangeSelect(obj){
+  var n = obj.selectedIndex; //获取第一个列表中选中的项的序列
+  var val = obj.options[n].value;  //获取第一个列表中选择的项的值
+ if(val==2){  //如果选择的值是 2 
+   document.myform.select2.options.length = 0; //初始化select2
+   for(i=0;i<4;i++){ //给第三个select创建四个项
+   document.myform.select2.options[i] = new Option("选择项"+(i+1),i+1); //Option() 的参数： 前一个是显示名，后一个是值
+   }
+  }
+
+
+if(val==1){  //如果选择的值是 2 
+   document.myform.select2.options.length = 0; //初始化select2
+   for(i=0;i<4;i++){ //给第三个select创建四个项
+   document.myform.select2.options[i] = new Option("选择项"+(i+3),i+1); //Option() 的参数： 前一个是显示名，后一个是值
+   }
+  }
+if(val==3){  //如果选择的值是 2 
+   document.myform.select2.options.length = 0; //初始化select2
+   for(i=0;i<4;i++){ //给第三个select创建四个项
+   document.myform.select2.options[i] = new Option("选择项"+(i+2),i+1); //Option() 的参数： 前一个是显示名，后一个是值
+   }
+  }
+  //你可以继续添加判断值，然后新重新初始化select2，再给select2进行项的添加操作
+}
+</script></head><body>
+<form name="myform" id="myform" action="">
+<select name="select1" onchange="ChangeSelect(this)">
+<option value="0"> 输入要查询的学院</option>
+<option value="1">计算机学院</option>
+<option value="2">选择列表二</option>
+<option value="3">选择列表三</option>
+</select>
+<select name="select2"></select>
+<option value="0"> 输入要查询的老师</option>
+<option value="1">选择列表一</option>
+<option value="2">选择列表二</option>
+<option value="3">选择列表三</option>
+</form>
+</body>
+</html>
